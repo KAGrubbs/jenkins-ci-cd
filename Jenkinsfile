@@ -76,7 +76,7 @@ spec:
     }
     stage('Deploy Production') {
       // Production branch
-      when { branch 'master' }
+      when { branch 'main' }
       steps{
         container('kubectl') {
         // Change deployed image in canary to the one we just built
@@ -90,7 +90,7 @@ spec:
     stage('Deploy Dev') {
       // Developer Branches
       when {
-        not { branch 'master' }
+        not { branch 'main' }
         not { branch 'canary' }
       }
       steps {
